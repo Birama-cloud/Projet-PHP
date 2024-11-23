@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sidebar Example</title>
+    <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -40,17 +40,39 @@
         <a href="exercice_17.php">exercice_17</a>
         </div>
     </div>
-
     <div class="main-content">
         <div class="typewriter">
-            <h1 class="typewriter-text">Bonjour, bienvenue sur notre site web netcode-iam!</h1><br><br>
-            <h2 class="typewriter-text">Les membres du groupe sont : </h2><br>
-            <h5 class="typewriter-text"> - Birama Togola</h5><br>
-            <h5 class="typewriter-text"> - Pape Cheikh Keinde</h5><br>
-            <h5 class="typewriter-text"> - Wély gueye</h5><br>
+            <h1 class="typewriter-text">Programme de vérification de Nombre Parfait</h1>
         </div>
-    </div>
+    <center>
+    <form method="post" action="">
+        <input type="number" id="nombre" name="nombre" required>
+        <button type="submit" name="Vérifier">Vérifier</button>
+    </form>
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $nombre = (int) $_POST['nombre'];
 
+        if ($nombre <= 0) {
+            echo "<p> Veuillez entrer un nombre positif. </p>";
+        } else {
+            $sommeDiviseurs = 0;
+            for ($i = 1; $i < $nombre; $i++) {
+                if ($nombre % $i == 0) {
+                    $sommeDiviseurs += $i;
+                }
+            }
+
+            if ($sommeDiviseurs == $nombre) {
+                echo "<p> <strong>$nombre</strong> est un nombre parfait. </p>";
+            } else {
+                echo "<p> <strong>$nombre</strong> n'est pas un nombre parfait. </p>";
+            }
+        }
+    }
+    ?>
+    </p>
+    </center>
     <script src="script.js"></script>
 </body>
 </html>

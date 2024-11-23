@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sidebar Example</title>
+    <title>Exercice 1</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <header>
+<body> 
+   <header>
         <nav>
             <img src="imag.jpg" class="logo" width="80px">
         </nav>
@@ -43,14 +43,42 @@
 
     <div class="main-content">
         <div class="typewriter">
-            <h1 class="typewriter-text">Bonjour, bienvenue sur notre site web netcode-iam!</h1><br><br>
-            <h2 class="typewriter-text">Les membres du groupe sont : </h2><br>
-            <h5 class="typewriter-text"> - Birama Togola</h5><br>
-            <h5 class="typewriter-text"> - Pape Cheikh Keinde</h5><br>
-            <h5 class="typewriter-text"> - Wély gueye</h5><br>
+            <h1 class="typewriter-text">Ce programme Compte le nombre  de Voyelles et  de <br>Consonnes</h1>
         </div>
     </div>
+    <center>
+    <h1></h1>
+    <form method="post" action="">
+        <label for="chaine">Entrez une chaîne de caractères :</label><br>
+        <input type="text" id="chaine" name="chaine" required>
+        <button type="submit">Analyser</button>
+    </form>
 
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $chaine = strtolower($_POST['chaine']); 
+        $voyelles = ['a', 'e', 'i', 'o', 'u', 'y'];
+        $nombreVoyelles = 0;
+        $nombreConsonnes = 0;
+
+        for ($i = 0; $i < strlen($chaine); $i++) {
+            $caractere = $chaine[$i];
+            if (ctype_alpha($caractere)) {
+                if (in_array($caractere, $voyelles)) {
+                    $nombreVoyelles++;
+                } else {
+                    $nombreConsonnes++;
+                }
+            }
+        }
+
+        echo "<h2>Résultats :</h2>";
+        echo "<p>Nombre de voyelles : <strong>$nombreVoyelles</strong></p>";
+        echo "<p>Nombre de consonnes : <strong>$nombreConsonnes</strong></p>";
+    }
+    ?>   
+</center>
+        
     <script src="script.js"></script>
 </body>
 </html>

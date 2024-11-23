@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sidebar Example</title>
+    <title>Exercice 3</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+<header>
         <nav>
             <img src="imag.jpg" class="logo" width="80px">
         </nav>
@@ -43,14 +43,32 @@
 
     <div class="main-content">
         <div class="typewriter">
-            <h1 class="typewriter-text">Bonjour, bienvenue sur notre site web netcode-iam!</h1><br><br>
-            <h2 class="typewriter-text">Les membres du groupe sont : </h2><br>
-            <h5 class="typewriter-text"> - Birama Togola</h5><br>
-            <h5 class="typewriter-text"> - Pape Cheikh Keinde</h5><br>
-            <h5 class="typewriter-text"> - Wély gueye</h5><br>
+            <h1 class="typewriter-text">Ce programme  calcule le périmètre, le diamètre et la surface d'un cercle</h1>
         </div>
     </div>
+    <center>
+        <h1></h1>
+        <form method="post" action="">
+        <form method="post" action="">
+        <label for="rayon">Entrez le rayon du cercle :</label>
+        <input type="number" id="rayon" name="rayon" step="0.01" required>
+        <button type="submit">Calculer</button>
+        </form>
+        <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $rayon = (float) $_POST['rayon'];
 
-    <script src="script.js"></script>
+        $diametre = 2 * $rayon;
+        $perimetre = 2 * M_PI * $rayon; 
+        $surface = M_PI * pow($rayon, 2); 
+
+        echo "<h2>Résultats :</h2>";
+        echo "<p>Diamètre : <strong>$diametre</strong></p>";
+        echo "<p>Périmètre : <strong>$perimetre</strong></p>";
+        echo "<p>Surface : <strong>$surface</strong></p>";
+    }
+    ?>
+    </center>
+<script src="script.js"></script>
 </body>
 </html>

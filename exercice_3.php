@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sidebar Example</title>
+    <title>Exercice 3</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+<header>
         <nav>
             <img src="imag.jpg" class="logo" width="80px">
         </nav>
@@ -43,14 +43,28 @@
 
     <div class="main-content">
         <div class="typewriter">
-            <h1 class="typewriter-text">Bonjour, bienvenue sur notre site web netcode-iam!</h1><br><br>
-            <h2 class="typewriter-text">Les membres du groupe sont : </h2><br>
-            <h5 class="typewriter-text"> - Birama Togola</h5><br>
-            <h5 class="typewriter-text"> - Pape Cheikh Keinde</h5><br>
-            <h5 class="typewriter-text"> - Wély gueye</h5><br>
+            <h1 class="typewriter-text">Ce programme calcule le PPCM de deux nombres</h1>
         </div>
     </div>
+    <center>
+    <form method="post" action="">
+        <input type="text" id="nombres" name="nombres"  required>
+        <button type="submit" name="Vérifier">Vérifier</button>
+    </form>
+    <?php
+$nombreInitial = 123;
 
-    <script src="script.js"></script>
+$compteur = 0;
+
+for ($tirage = 0; $tirage != $nombreInitial; $compteur++) {
+    $tirage = rand(100, 999); 
+}
+
+echo "<p>Nombre initial : $nombreInitial</p>";
+echo "<p>Nombre de tirages nécessaires (avec for) : $compteur</p>";
+?>
+</center>
+<script src="script.js"></script>
 </body>
 </html>
+

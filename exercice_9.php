@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sidebar Example</title>
+    <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -40,17 +40,44 @@
         <a href="exercice_17.php">exercice_17</a>
         </div>
     </div>
-
     <div class="main-content">
         <div class="typewriter">
-            <h1 class="typewriter-text">Bonjour, bienvenue sur notre site web netcode-iam!</h1><br><br>
-            <h2 class="typewriter-text">Les membres du groupe sont : </h2><br>
-            <h5 class="typewriter-text"> - Birama Togola</h5><br>
-            <h5 class="typewriter-text"> - Pape Cheikh Keinde</h5><br>
-            <h5 class="typewriter-text"> - Wély gueye</h5><br>
+            <h1 class="typewriter-text">Programme d'analyse d'un tableau d'entiers</h1>
         </div>
-    </div>
 
+    <h1>Informations des personnes</h1>
+
+<?php
+$personnes = [
+    "Dupont" => [
+        "prenom" => "Jean",
+        "ville" => "Paris",
+        "age" => 35
+    ],
+    "Martin" => [
+        "prenom" => "Sophie",
+        "ville" => "Lyon",
+        "age" => 28
+    ],
+    "Durand" => [
+        "prenom" => "Paul",
+        "ville" => "Marseille",
+        "age" => 42
+    ]
+];
+
+echo "<h2>Liste des personnes :</h2>";
+echo "<ul>";
+foreach ($personnes as $nom => $details) {
+    echo "<li><strong>$nom</strong> :</li>";
+    echo "<ul>";
+    echo "<li>Prénom : " . $details['prenom'] . "</li>";
+    echo "<li>Ville : " . $details['ville'] . "</li>";
+    echo "<li>Âge : " . $details['age'] . "</li>";
+    echo "</ul>";
+}
+echo "</ul>";
+?>
     <script src="script.js"></script>
 </body>
 </html>

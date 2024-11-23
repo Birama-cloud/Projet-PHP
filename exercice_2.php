@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sidebar Example</title>
+    <title>Exercice</title>
     <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
-    <header>
+<header>
         <nav>
             <img src="imag.jpg" class="logo" width="80px">
         </nav>
@@ -40,17 +41,27 @@
         <a href="exercice_17.php">exercice_17</a>
         </div>
     </div>
-
-    <div class="main-content">
+        <div class="main-content">
         <div class="typewriter">
-            <h1 class="typewriter-text">Bonjour, bienvenue sur notre site web netcode-iam!</h1><br><br>
-            <h2 class="typewriter-text">Les membres du groupe sont : </h2><br>
-            <h5 class="typewriter-text"> - Birama Togola</h5><br>
-            <h5 class="typewriter-text"> - Pape Cheikh Keinde</h5><br>
-            <h5 class="typewriter-text"> - Wély gueye</h5><br>
+            <h1 class="typewriter-text">Programme pour  vérifier si un nombre et divisible a la fois <br> par 3 et 5</h1>
         </div>
-    </div>
+    <center>
+        <form method="post" action="">
+            <input type="number" id="number" name="number" required>
+            <button type="submit" name="Vérifier">Vérifier</button>
+        </form>
 
+        <?php
+        if (isset($_POST["number"])) {
+            $number = $_POST["number"];
+            if ($number % 3 == 0 && $number % 5 == 0) {
+                echo "<p>$number est divisible par 3 et par 5</p>";
+            } else {
+                echo "<p>$number n'est pas divisible par 3 et par 5</p>";
+            }
+        }
+        ?>
+    </center>
     <script src="script.js"></script>
 </body>
 </html>

@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sidebar Example</title>
+    <title>Exercice 3</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+<header>
         <nav>
             <img src="imag.jpg" class="logo" width="80px">
         </nav>
@@ -43,14 +43,39 @@
 
     <div class="main-content">
         <div class="typewriter">
-            <h1 class="typewriter-text">Bonjour, bienvenue sur notre site web netcode-iam!</h1><br><br>
-            <h2 class="typewriter-text">Les membres du groupe sont : </h2><br>
-            <h5 class="typewriter-text"> - Birama Togola</h5><br>
-            <h5 class="typewriter-text"> - Pape Cheikh Keinde</h5><br>
-            <h5 class="typewriter-text"> - Wély gueye</h5><br>
+            <h1 class="typewriter-text">Ce programme  calcule le périmètre, le diamètre et <br>la surface d'un cercle</h1>
         </div>
     </div>
+    <center>
+    <h1>Liste des Diviseurs</h1>
+    <form method="post" action="">
+        <label for="nombre">Entrez un nombre :</label>
+        <input type="number" id="nombre" name="nombre" required>
+        <button type="submit">Afficher les diviseurs</button>
+    </form>
 
-    <script src="script.js"></script>
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $nombre = (int) $_POST['nombre'];
+
+        if ($nombre <= 0) {
+            echo "<p>Veuillez entrer un nombre positif.</p>";
+        } else {
+            echo "<h2>Les diviseurs de $nombre sont :</h2>";
+            echo "<ul>"; 
+
+            for ($i = 1; $i <= $nombre; $i++) {
+                if ($nombre % $i == 0) {
+                    echo "<li>$i</li>";
+                }
+            }
+
+            echo "</ul>";
+        }
+    }
+    ?>
+
+    </center>
+<script src="script.js"></script>
 </body>
 </html>

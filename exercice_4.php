@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sidebar Example</title>
+    <title>Exercice 3</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+<header>
         <nav>
             <img src="imag.jpg" class="logo" width="80px">
         </nav>
@@ -43,13 +43,44 @@
 
     <div class="main-content">
         <div class="typewriter">
-            <h1 class="typewriter-text">Bonjour, bienvenue sur notre site web netcode-iam!</h1><br><br>
-            <h2 class="typewriter-text">Les membres du groupe sont : </h2><br>
-            <h5 class="typewriter-text"> - Birama Togola</h5><br>
-            <h5 class="typewriter-text"> - Pape Cheikh Keinde</h5><br>
-            <h5 class="typewriter-text"> - Wély gueye</h5><br>
+            <h1 class="typewriter-text">Ce programme calcule le PPCM de deux nombres</h1>
         </div>
     </div>
+    <center>
+        <h1></h1>
+        <form method="post" action="">
+        <label for="nombre1">Entrez le premier entier :</label>
+        <input type="number" id="nombre1" name="nombre1" required>
+        <br>
+        <label for="nombre2">Entrez le deuxième entier :</label>
+        <input type="number" id="nombre2" name="nombre2" required>
+        <br>
+        <button type="submit">Calculer le PPCM</button>
+        </form>
+        <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $nombre1 = (int) $_POST['nombre1'];
+        $nombre2 = (int) $_POST['nombre2'];
+
+        function calculerPGCD($a, $b) {
+            while ($b != 0) {
+                $reste = $a % $b;
+                $a = $b;
+                $b = $reste;
+            }
+            return $a;
+        }
+
+        function calculerPPCM($a, $b) {
+            $pgcd = calculerPGCD($a, $b);
+            return abs($a * $b) / $pgcd; 
+        }
+
+        $ppcm = calculerPPCM($nombre1, $nombre2);
+        echo "<p>Le PPCM de $nombre1 et $nombre2 est : <strong>$ppcm</strong></p>";
+    }
+    ?>
+    </center>
 
     <script src="script.js"></script>
 </body>

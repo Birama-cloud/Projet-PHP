@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sidebar Example</title>
+    <title>Exercice 1</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <header>
+<body> 
+   <header>
         <nav>
             <img src="imag.jpg" class="logo" width="80px">
         </nav>
@@ -43,14 +43,31 @@
 
     <div class="main-content">
         <div class="typewriter">
-            <h1 class="typewriter-text">Bonjour, bienvenue sur notre site web netcode-iam!</h1><br><br>
-            <h2 class="typewriter-text">Les membres du groupe sont : </h2><br>
-            <h5 class="typewriter-text"> - Birama Togola</h5><br>
-            <h5 class="typewriter-text"> - Pape Cheikh Keinde</h5><br>
-            <h5 class="typewriter-text"> - Wély gueye</h5><br>
+            <h1 class="typewriter-text">Programme de calcul du nombre de jour restant : </h1>
         </div>
     </div>
+    <center>
+    <form method="post" action="">
+        <label for="date">Entrez une date (format : JJ-MM-AAAA) :</label><br>
+        <input type="date" id="date" name="date" required>
+        <button type="submit">Calculer</button>
+    </form>
 
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $dateSaisie = $_POST['date'];
+
+        $dateActuelle = new DateTime($dateSaisie);
+        $finAnnee = new DateTime($dateActuelle->format('Y') . '-12-31');
+
+        $interval = $dateActuelle->diff($finAnnee);
+
+        echo "<h2>Résultat :</h2>";
+        echo "<p>Il reste <strong>" . $interval->days . "</strong> jours jusqu'à la fin de l'année.</p>";
+    }
+    ?>
+    </center>
+        
     <script src="script.js"></script>
-</body>
+    </body>
 </html>
